@@ -1,0 +1,64 @@
+body {
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	font-size: 0.32rem;
+	color:"#000000";
+}
+
+div ,main{
+	box-sizing: border-box;
+}
+
+button::after {
+	border: none !important;
+}
+
+::-webkit-scrollbar {
+	background-color: transparent;
+	color: transparent;
+	height: 0;
+	width: 0;
+	display: none;
+}
+
+.test .test-btn {
+  width: 80%;
+  padding: 0.3rem;
+  background-color: #1cbbb4;
+  color: #ffffff;
+  font-size: 0.38rem;
+  margin: 0.3rem auto 0.3rem;
+  border-radius: 0.12rem;
+}
+.test .check-btn{
+  background-color: #09a0db;
+}
+// 弹窗配置
+.optionsContent{
+	padding: 0.3rem;
+	font-size: 0.28rem;
+	text-align: left;
+}
+.optionsContent p{
+	margin-bottom: 0.2rem;
+	white-space: wrap;
+	word-break: break-all;
+}
+.optionsContent p span{
+	color: #00b0f8;
+}
+.optionsContent>div,.optionsContent>pre{
+	font-size: 0.32rem;
+}
+/* 分割线 */
+.cuttingLine {
+	width: 100%;
+	height: 20rpx;
+	background-color: #f5f8fa;
+}
+
+.iptPlaceholder {
+	color: #c4c6c8;
+	font-size: 30rpx;
+}

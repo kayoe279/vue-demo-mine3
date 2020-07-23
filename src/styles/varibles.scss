@@ -1,0 +1,70 @@
+/**
+ * 全局变量
+ * 命名规范 —— 遵守语义化命名：lg-大号、base-基本号、sm-小号、mini-超小号
+ */
+
+$font-weight-base: 400;
+$font-size-lg: 18px;
+$font-size-base: 16px;
+$font-size-sm: 24px;
+$font-size-mini: 10px;
+
+// 颜色
+$color-common: #3a445a;
+$color-blue: #4c85ff;
+$color-desc-title: #c4c6c8;
+$color-desc-content: #7d8796;
+$color-error: #F04134;
+$color-warn: #F5A623;
+
+// 背景色
+$background-color-blue: #4c85ff;
+$background-color-orange-label: #f59a49;
+$background-color-green-label: #3dcc87;
+
+// 边框
+$border-blue:solid 1px $color-blue;
+$border-radius-default:12px;
+
+$red: #e54d42;
+$orange: #f37b1d;
+$yellow: #fbbd08;
+$olive: #8dc63f;
+$green: #39b54a;
+$cyan: #1cbbb4;
+$blue: #0081ff;
+$purple: #6739b6;
+$mauve: #9c26b0;
+$pink: #e03997;
+$brown: #a5673f;
+
+.bg-red {
+  background-color: $red;
+}
+.bg-orange {
+  background-color: $orange;
+}
+.bg-yellow {
+  background-color: $yellow;
+}
+.bg-olive {
+  background-color: $olive;
+}
+.bg-green {
+  background-color: $green;
+}
+.bg-cyan {
+  background-color: $cyan;
+}
+.bg-blue {
+  background-color: $blue;
+}
+.bg-purple {
+  background-color: $purple;
+}
+.bg-mauve {
+  background-color: $mauve;
+}
+.bg-pink {
+  background-color: $pink;
+}
