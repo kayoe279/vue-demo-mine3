@@ -10,6 +10,7 @@
     <div class="test-btn" @click="ClickModal('confirm','',true,'clear')">异步不关闭弹窗,清空状态</div>
     <div class="tips">异步关闭的好处是可做一些操作之后手动调用关闭方法</div>
     <div class="test-btn" @click="ClickModalCustom()">自定义内容(html片段)</div>
+    <div class="test-btn" @click="toggleZoom()">切换动画</div>
     <v-popup v-model="showOption" mode="center" borderRadius="6">
       <div class="optionsContent">
         <p>
@@ -90,27 +91,28 @@ export default {
   data() {
     return {
       index: 0,
-      showOption: false
+      showOption: false,
+      zoomOut: true,
     };
   },
   methods: {
     ClickModal(type, way, isAsync, status) {
       let that = this;
       if (way == "promise") {
-        this.$modal({
+        this.$showModal({
           content: "我是通过promise调用的",
           showCancelButton: type == "confirm",
           confirmText: "点我",
-          cancelText: "关闭"
+          cancelText: "关闭",
         })
-          .then(rlt => {
+          .then((rlt) => {
             console.log("确认点我");
           })
-          .catch(rlt => {
+          .catch((rlt) => {
             console.log("取消");
           });
       } else {
-        this.$modal({
+        this.$showModal({
           title: "注意",
           content: "我是宇宙无敌爆炸帅",
           showCancelButton: type == "confirm",
@@ -133,7 +135,7 @@ export default {
           },
           cancel() {
             console.log("取消按钮");
-          }
+          },
         });
       }
     },
@@ -148,11 +150,38 @@ export default {
         },
         cancel() {
           console.log("取消按钮");
-        }
+        },
       });
-    }
+    },
+    // 切换动画
+    toggleZoom() {
+      this.$modal({
+        title: "提示",
+        content: this.zoomOut ? "有里向外缩放" : "由外向里缩放",
+        zoomOut: this.zoomOut,
+        showCancelButton: true,
+        confirm:()=> {
+          console.log("confirm")
+          setTimeout(() => {
+            this.zoomOut = !this.zoomOut;
+          }, 500);
+        },
+        cancel:()=> {
+          setTimeout(() => {
+            this.zoomOut = !this.zoomOut;
+          }, 500);
+        },
+        success: (res) => {
+          if (res == "confirm") {
+            console.log("success-confirm");
+          } else {
+            console.log("success-cancel");
+          }
+        },
+      });
+    },
   },
-  mounted() {}
+  mounted() {},
 };
 </script>
 <style lang="css">

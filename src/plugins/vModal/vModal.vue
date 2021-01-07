@@ -14,7 +14,7 @@
       @touchmove.stop.prevent
       @click.stop="maskClick"
     >
-      <div class="v-modal v-animation-zoom" :style="centerStyle">
+      <div class="v-modal v-animation-zoom" :class="zoomOut?'v-animation-zoomOut':'v-animation-zoom'" :style="centerStyle">
         <div v-if="showTitle" class="v-modal-title">{{ title }}</div>
         <div class="v-modal-content">
           <div class="v-modal-content-meeeage" v-if="!!isContentHtml" v-html="content"></div>
@@ -26,13 +26,13 @@
             class="v-modal-footer-button"
             :style="quxiaoStyle"
             type="default"
-            @click.stop="cancel"
+            @click.stop="cancel('cancel')"
           >{{cancelText}}</div>
           <div
             v-if="showConfirmButton"
             class="v-modal-footer-button confirm-btn"
             :style="querenStyle"
-            @click.stop="confirm"
+            @click.stop="confirm('confirm')"
           >
             <span
               v-if="loading"
@@ -69,7 +69,9 @@ export default {
       width: "260px", //弹窗宽度,单位px/auto
       borderRadius: 6, //弹窗圆角,默认6px
       asyncClose: false, //是否异步关闭,只对确认按钮有效 ,需要手调用close才能关闭
-      loading: false //确认正在加载
+      loading: false,//确认正在加载
+      zoomOut:true,// true 里-外缩放  false外-里缩放
+      status:"",//confrim确定 cancel取消
     };
   },
   computed: {
@@ -119,11 +121,13 @@ export default {
       if (!this.maskCloseAble) return;
       this.cancel();
     },
-    confirm() {
-      this.showModal = false;
+    confirm(status) {
+      // this.showModal = false;
+      // this.status = status;
     },
-    cancel() {
-      this.showModal = false;
+    cancel(status) {
+      // this.showModal = false;
+      // this.status = status;
     },
     // 重置data对象到初始化状态
     setDefaultOptions() {
@@ -185,6 +189,9 @@ export default {
 .v-animation-zoom {
   transform: scale(1.2);
 }
+.v-animation-zoomOut{
+  transform: scale(0.5);
+}
 
 .v-modal-box-visible .v-modal {
   transform: scale(1);
@@ -192,7 +199,7 @@ export default {
 }
 
 .v-modal .v-modal-title {
-  padding-top: 15px;
+  padding: 14px 0;
   font-weight: 500;
   font-size: 18px;
   text-align: center;
@@ -202,7 +209,7 @@ export default {
   text-overflow: ellipsis;
 }
 .v-modal .v-modal-content-meeeage {
-  padding: 14px;
+  padding: 16px;
   font-size: 15px;
   text-align: center;
   color: #303133;
@@ -244,7 +251,7 @@ export default {
   content: "";
   width: 100%;
   height: 1px;
-  background-color: #e7e7e8;
+  background-color: #f7f7f7;
   transform: scaleY(0.5);
   position: absolute;
   top: 0;

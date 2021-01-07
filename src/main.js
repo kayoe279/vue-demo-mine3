@@ -1,25 +1,30 @@
 import Vue from "vue";
 import App from "./App.vue";
-import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
-import "./assets/js/rem-common"; //rem适配
+// import "./assets/js/rem-common"; //rem适配
+import 'lib-flexible/flexible';//移动端适配
 import "./styles/index.scss"; // 全局样式
-import VueCookie from 'vue-cookie'
-Vue.use(VueCookie)
+import "./permission" // 路由守卫
+import "./utils/vueGlobal"; // 全局方法
 
-// 全局自定义组件
+//操作反馈.全局自定义组件
+import vLoading from "@/plugins/vLoading/vLoading";
+import vToast from "@/plugins/vToast/vToast";
+import vModal from "@/plugins/vModal/vModal";
+Vue.use(vLoading, { theme: "dark" }).use(vToast).use(vModal);
 import vPopup from "./components/v-popup";
 Vue.component("v-popup", vPopup);
 
 // 工具,请求
-import request from "./api/request";
-import utils from "./utils/utils";
+import request from "./utils/request";
 import constant from "./utils/constant";
+import utils from "./utils/index";
+import * as auth from "./utils/auth" // 两种写法
 Vue.prototype.$request = request;
 Vue.prototype.$utils = utils;
 Vue.prototype.$constant = constant;
-
+Vue.prototype.$auth = auth;
 
 
 // 全局过滤器
@@ -37,17 +42,3 @@ new Vue({
 }).$mount("#app");
 
 
-// 路由守卫 
-router.beforeEach((to, from, next) => {
-  if (to.meta.title) {
-    document.title = to.meta.title
-  }
-  if (to.path == "/first" && from.path == "/") {
-    next()
-  }
-  if (to.matched.length === 0) { //匹配前往的路由不存在
-    next(from.name ? { name: from.name } : '/error') //判断此跳转路由的来源路由是否存在，存在的情况跳转到来源路由，否则跳转到404页面
-  } else {
-    next(); //如果匹配到正确跳转
-  }
-})

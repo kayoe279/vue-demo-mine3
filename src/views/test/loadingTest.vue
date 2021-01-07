@@ -65,9 +65,9 @@ export default {
   },
   methods: {
     ClickLoading(type, title, theme, cb) {
-      this.$loading.showLoading({ type, title, theme });
+      this.$showLoading({ type, title, theme });
       setTimeout(() => {
-        this.$loading.hideLoading(() => {
+        this.$hideLoading(() => {
           if (cb) {
             this.$toast("我是加载完成后调用的(#^.^#)");
           }
@@ -75,9 +75,9 @@ export default {
       }, 3000);
     },
     ClickCoverLoading() {
-      this.$loading.coverLoading();
+      this.$coverLoading();
       setTimeout(() => {
-        this.$loading.hideLoading();
+        this.$hideLoading();
       }, 2000);
     }
   },

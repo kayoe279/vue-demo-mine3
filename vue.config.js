@@ -1,6 +1,9 @@
 // vue.config.js
 const path = require('path');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const Timestamp = new Date().getTime();
 
 function resolve(dir) {
     return path.join(__dirname, dir)
@@ -25,7 +28,17 @@ module.exports = {
     configureWebpack: {
         externals: {
             'AMap': 'AMap' // 高德地图配置
-        }
+        },
+        plugins: [
+            new MiniCssExtractPlugin({
+                filename: `css/[name].${Timestamp}.css`,
+                chunkFilename: `css/[name].${Timestamp}.css`
+            })
+        ],
+        output: { // 输出重构  打包编译后的 文件名称  【模块名称.版本号.时间戳】 解决缓存问题
+            filename: `js/[name].${Timestamp}.js`,
+            chunkFilename: `js/[name].${Timestamp}.js`
+        },
     },
     css: {
         loaderOptions: {
@@ -35,6 +48,14 @@ module.exports = {
                 prependData: `
               @import "~@/styles/varibles.scss";
               @import "~@/styles/mixin.scss";`
+            },
+            postcss: {
+                plugins: [
+                    require('postcss-px2rem')({// 移动端适配
+                        remUnit: 37.5,
+                        remPrecision: 2
+                    })
+                ]
             }
         }
     }

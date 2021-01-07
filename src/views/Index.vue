@@ -11,7 +11,7 @@
       >{{item.name}}</div>
     </div>
     <main>
-      <div class="subButton" @click="change">数量加1</div>
+      <div class="subButton" @click="change" style="font-size:16px;">数量加1</div>
       <div class="subButton" @click="clearList">重置count</div>
       <div class="count-box">
         <span class="count">数量:{{count}}</span>
@@ -112,6 +112,7 @@ export default {
   },
   mounted() {
     let _this = this;
+    // this.$coverLoading();
     PubSub.subscribe("changeState", (event, data) => {
       _this.showPubSub = data;
       console.log(data);
@@ -124,28 +125,28 @@ export default {
 #hello {
   height: 100%;
   background-color: #fff;
-  padding-bottom: 0.5rem;
+  padding-bottom: 25px;
   background: url("../assets/img/bg-skin.png") no-repeat;
   background-size: 100% 100%;
   overflow-y: auto;
   header {
     width: 100%;
-    height: 1rem;
+    height: 50px;
     background-size: 100% 100%;
   }
   .buttons {
-    padding: 0.3rem;
+    padding: 15px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     .item-btn {
       width: 48%;
-      height: 2rem;
-      line-height: 2rem;
-      border-radius: 0.1rem;
-      padding: 0 0.1rem;
-      margin: 0 0 0.4rem 0rem;
-      font-size: 0.36rem;
+      height: 100px;
+      line-height: 100px;
+      border-radius: 5px;
+      padding: 0 5px;
+      margin: 0 0 20px 0;
+      font-size: 16px;
       background-image: url("https://image.weilanwl.com/color2.0/cardBg.png");
       background-size: cover;
       background-position: center;
@@ -161,7 +162,7 @@ export default {
         height: 100%;
         left: 0;
         bottom: -12%;
-        border-radius: 0.1rem;
+        border-radius: 5px;
         opacity: 0.2;
         transform: scale(0.9, 0.9);
       }
@@ -169,33 +170,33 @@ export default {
   }
   main {
     width: 100%;
-    margin-top: 0.4rem;
-    padding: 0.3rem;
+    margin-top: 20px;
+    padding: 15px;
     .count-box {
-      margin-bottom: 0.3rem;
+      margin-bottom: 15px;
     }
     .subButton {
       width: 100%;
-      height: 0.9rem;
-      line-height: 0.9rem;
-      border-radius: 0.1rem;
-      padding: 0 0.1rem;
-      margin: 0 0 0.2rem 0rem;
-      font-size: 0.36rem;
+      height: 45px;
+      line-height: 45px;
+      border-radius: 5px;
+      padding: 0 5px;
+      margin: 0 0 10px 0rem;
+      font-size: 18px;
       background: #8dc63f;
       color: #fff;
       box-shadow: rgba(26, 26, 26, 0.2);
     }
     .box {
       width: 100%;
-      border-radius: 0.12rem;
+      border-radius: 6px;
       background-image: url("https://image.weilanwl.com/color2.0/cardBg.png");
       background-size: cover;
       background-position: center;
       position: relative;
       z-index: 1;
       background-color: #1cbbb4;
-      padding: 0.3rem;
+      padding: 15px;
       color: #fff;
       &::after {
         content: "";
@@ -206,20 +207,20 @@ export default {
         height: 100%;
         left: 0;
         bottom: -10%;
-        border-radius: 0.1rem;
+        border-radius: 5px;
         opacity: 0.2;
         transform: scale(0.9, 0.9);
       }
     }
     ul li {
       width: 100%;
-      padding: 0.15rem 0;
+      padding: 7.5px 0;
     }
     button {
       width: 100%;
-      padding: 0.2rem 0;
-      border-radius: 0.12rem;
-      margin-top: 0.2rem;
+      padding: 10px 0;
+      border-radius: 6px;
+      margin-top: 10px;
       background-color: #fff;
       color: #1cbbb4;
       border: none;
