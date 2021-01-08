@@ -1,66 +1,85 @@
-body {
-	width: 100%;
-	height: 100%;
-	background-color: #fff;
-	font-size: 0.32rem;
-	color:"#000000";
+@font-face {
+  font-family: "PingFang Regular";
+  src: url("../assets/ttf/PingFang Regular.ttf");
+}
+body,
+html,
+#app {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  text-align: center;
+  font-size: 16px;
+  color: #000000;
+  font-family: "PingFang Regular";
+  line-height: 1.2 !important;
+  overflow-y: auto !important;
 }
 
-div ,main{
-	box-sizing: border-box;
+button {
+  font-family: "PingFang Regular" !important;
+}
+a {
+  font-family: "PingFang Regular" !important;
+}
+
+div,
+main {
+  box-sizing: border-box;
 }
 
 button::after {
-	border: none !important;
+  border: none !important;
 }
 
 ::-webkit-scrollbar {
-	background-color: transparent;
-	color: transparent;
-	height: 0;
-	width: 0;
-	display: none;
+  background-color: transparent;
+  color: transparent;
+  height: 0;
+  width: 0;
+  display: none;
 }
-.item-btn{
-	font-size: 16px;
+.item-btn {
+  font-size: 16px;
 }
 .test .test-btn {
   width: 80%;
-  padding: 0.3rem;
+  padding: 15px;
   background-color: #1cbbb4;
   color: #ffffff;
-  font-size: 0.38rem;
-  margin: 0.3rem auto 0.3rem;
-  border-radius: 0.12rem;
+  font-size: 19px;
+  margin: 15px auto 15px;
+  border-radius: 6px;
 }
-.test .check-btn{
+.test .check-btn {
   background-color: #09a0db;
 }
 // 弹窗配置
-.optionsContent{
-	padding: 0.3rem;
-	font-size: 0.28rem;
-	text-align: left;
+.optionsContent {
+  padding: 15px;
+  font-size: 14px;
+  text-align: left;
 }
-.optionsContent p{
-	margin-bottom: 0.2rem;
-	white-space: wrap;
-	word-break: break-all;
+.optionsContent p {
+  margin-bottom: 10px;
+  white-space: wrap;
+  word-break: break-all;
 }
-.optionsContent p span{
-	color: #00b0f8;
+.optionsContent p span {
+  color: #00b0f8;
 }
-.optionsContent>div,.optionsContent>pre{
-	font-size: 0.32rem;
+.optionsContent > div,
+.optionsContent > pre {
+  font-size: 16px;
 }
 /* 分割线 */
 .cuttingLine {
-	width: 100%;
-	height: 20rpx;
-	background-color: #f5f8fa;
+  width: 100%;
+  height: 10px;
+  background-color: #f5f8fa;
 }
 
 .iptPlaceholder {
-	color: #c4c6c8;
-	font-size: 30rpx;
+  color: #c4c6c8;
+  font-size: 15px;
 }

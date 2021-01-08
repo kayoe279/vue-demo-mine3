@@ -46,7 +46,7 @@ export default {
       title: "",
       type: "loading",
       color: "#c7c7c7",
-      size: "50"
+      size: "40"//动画大小
     };
   },
   computed: {
@@ -60,14 +60,14 @@ export default {
     circleStyle() {
       let style = {};
       if (this.type == "circle") {
-        style.width = parseInt(this.size * 0.8) + "px";
-        style.height = parseInt(this.size * 0.8) + "px";
+        style.width = parseInt(this.size * 0.6) + "px";
+        style.height = parseInt(this.size * 0.6) + "px";
         style.borderColor = `#e4e4e4 #e4e4e4 #e4e4e4 ${
           this.color ? this.color : "#c7c7c7"
         }`;
       } else if (this.type == "warning") {
-        style.width = parseInt(this.size * 0.8) + "px";
-        style.height = parseInt(this.size * 0.8) + "px";
+        style.width = parseInt(this.size * 0.6) + "px";
+        style.height = parseInt(this.size * 0.6) + "px";
       } else {
         style.width = this.size + "px";
         style.height = this.size + "px";
@@ -119,6 +119,7 @@ export default {
 
 .v-loading-box {
   min-width: 90px;
+  max-width: 100px;
   min-height: 90px;
   padding: 10px;
   border-radius: 6px;
@@ -139,12 +140,12 @@ export default {
 }
 
 .v-loading-box.title {
-  min-width: 95px;
+  min-width: 90px;
 }
 
 .v-loading-box .v-loading-title {
-  margin-top: 5px;
-  height: 20px;
+  margin-top: 8px;
+  font-size: 14px;
 }
 
 .v-loading-box .v-loading-circle {

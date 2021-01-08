@@ -2,7 +2,6 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-// import "./assets/js/rem-common"; //rem适配
 import 'lib-flexible/flexible';//移动端适配
 import "./styles/index.scss"; // 全局样式
 import "./permission" // 路由守卫
@@ -12,7 +11,7 @@ import "./utils/vueGlobal"; // 全局方法
 import vLoading from "@/plugins/vLoading/vLoading";
 import vToast from "@/plugins/vToast/vToast";
 import vModal from "@/plugins/vModal/vModal";
-Vue.use(vLoading, { theme: "dark" }).use(vToast).use(vModal);
+Vue.use(vLoading).use(vToast).use(vModal);
 import vPopup from "./components/v-popup";
 Vue.component("v-popup", vPopup);
 

@@ -54,7 +54,7 @@ export default new Vuex.Store({
             state.userInfo = userInfo || {}
         },
     },
-    // 异步 出发mutations方法
+    // 异步 触发mutations方法
     actions: {
         // context ==store对象差不多写成 {commit,state}等等 
         invokeList(context, item) {
